@@ -19,32 +19,37 @@ public class Sorts<T> {
 	}
 	
 	
-	//RadixSort
-	public void RadixSort (int T[] , int n, int place) {
-		int[] output = new int[n+1];  
-	    int[] count = new int[10];  
-	      
-	      
-	    for (int i = 0; i < n; i++)  
-	    	count[(T[i] / place) % 10]++;  
-	          
-	      
-	    for (int i = 1; i < 10; i++)  
-	    	count[i] += count[i - 1];  
-	      
-	     
-	    for (int i = n - 1; i >= 0; i--) {  
-	    	output[count[(T[i] / place) % 10] - 1] = T[i];  
-	    	count[(T[i] / place) % 10]--;  
-	      
-	    }  
-	        
-	    for (int i = 0; i < n; i++)  
-	    	T[i] = output[i];  
+	//QuickSort
+	public void QuickSort(int arr[], int begin, int end) {
+	    if (begin < end) {
+	        int partitionIndex = partition(arr, begin, end);
+
+	        QuickSort(arr, begin, partitionIndex-1);
+	        QuickSort(arr, partitionIndex+1, end);
 	    }
+	}
 	
-	
-	
+	private int partition(int arr[], int begin, int end) {
+	    int pivot = arr[end];
+	    int i = (begin-1);
+
+	    for (int j = begin; j < end; j++) {
+	        if (arr[j] <= pivot) {
+	            i++;
+
+	            int swapTemp = arr[i];
+	            arr[i] = arr[j];
+	            arr[j] = swapTemp;
+	        }
+	    }
+
+	    int swapTemp = arr[i+1];
+	    arr[i+1] = arr[end];
+	    arr[end] = swapTemp;
+
+	    return i+1;
+	}
+	    
 	
 	//BubbleSort
 	public void BubbleSort( T [] myArray) {
