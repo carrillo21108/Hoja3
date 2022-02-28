@@ -24,15 +24,15 @@ public class Sorts<T> {
 		int[] output = new int[n+1];  
 	    int[] count = new int[10];  
 	      
-	      // Calculate count of elements   
+	      
 	    for (int i = 0; i < n; i++)  
 	    	count[(T[i] / place) % 10]++;  
 	          
-	      // Calculate cumulative frequency    
+	      
 	    for (int i = 1; i < 10; i++)  
 	    	count[i] += count[i - 1];  
 	      
-	      // Place the elements in sorted order    
+	     
 	    for (int i = n - 1; i >= 0; i--) {  
 	    	output[count[(T[i] / place) % 10] - 1] = T[i];  
 	    	count[(T[i] / place) % 10]--;  
