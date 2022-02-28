@@ -56,9 +56,9 @@ public class Sorts<T> {
 	    
 	
 	//BubbleSort
-	public void BubbleSort( T [] myArray) {
+	public void BubbleSort( T[] myArray) {
 		for (int i = 0; i < myArray.length - 1; i++) {
-			for(int j = 0; j < myArray.length; j++) {
+			for(int j = i + 1; j < myArray.length; j++) {
 				if(compare.Compare(myArray[i], myArray[j]) > 0) {
 					T temp = myArray[i];
 					myArray[i] = myArray[j];
