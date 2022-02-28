@@ -20,35 +20,39 @@ public class Sorts<T> {
 	
 	
 	//QuickSort
-	public void QuickSort(int arr[], int begin, int end) {
-	    if (begin < end) {
-	        int partitionIndex = partition(arr, begin, end);
-
-	        QuickSort(arr, begin, partitionIndex-1);
-	        QuickSort(arr, partitionIndex+1, end);
+	public void QuickSort(T[] myArray, int inf, int sup) {
+	        int i = inf -1;
+	        int j = sup;
+	        boolean flag = true;
+	        T temp;
+	        
+	        if (inf >= sup) {
+	 		   return;
+	 	   }
+	 	   
+	 	   T elem_div = myArray[sup];
+	 	   
+	 	   
+	 	   while (flag) {
+	 		   while(compare.Compare(myArray[++i], elem_div) < 0); //Move the index i until it finds an element bigger than elem_div
+	 		   while((compare.Compare(myArray[--j], elem_div) > 0) && (j > inf)); //Move the index j until it finds element smaller than elem_div
+	 		   
+	 		   if (i < j) {
+	 			   temp = myArray[i];
+	 			   myArray[i] = myArray[j];
+	 			   myArray[j] = temp;
+	 		   } else {
+	 			   flag = false;
+	 		   }
+	 	   }
+	 	   
+	 	   temp = myArray[i];
+	 	   myArray[i] = myArray[sup];
+	 	   myArray[sup] = temp;
+	 	   QuickSort(myArray, inf, i - 1);
+	 	   QuickSort(myArray, i + 1, sup);
 	    }
-	}
 	
-	private int partition(int arr[], int begin, int end) {
-	    int pivot = arr[end];
-	    int i = (begin-1);
-
-	    for (int j = begin; j < end; j++) {
-	        if (arr[j] <= pivot) {
-	            i++;
-
-	            int swapTemp = arr[i];
-	            arr[i] = arr[j];
-	            arr[j] = swapTemp;
-	        }
-	    }
-
-	    int swapTemp = arr[i+1];
-	    arr[i+1] = arr[end];
-	    arr[end] = swapTemp;
-
-	    return i+1;
-	}
 	    
 	
 	//BubbleSort
