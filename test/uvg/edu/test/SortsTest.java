@@ -58,6 +58,19 @@ class SortsTest {
 	@Test
 	void RadixSortTest() {
 		
+		Sorts sorts = new Sorts(new IntegerComparator());
+		Integer[] myArray = new Integer[4];
+		myArray[0] = 4;
+		myArray[1] = 2;
+		myArray[2] = 1;
+		myArray[3] = 3; 
+		
+		sorts.radixsort(myArray);
+		
+		assertEquals(myArray[0], 1);
+		assertEquals(myArray[1], 2);
+		assertEquals(myArray[2], 3);
+		assertEquals(myArray[3], 4);
 	}
 	
 	@Test

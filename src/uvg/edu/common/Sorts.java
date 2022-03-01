@@ -3,6 +3,7 @@
  */
 package uvg.edu.common;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -83,7 +84,48 @@ public class Sorts<T> {
 	
 	//Radix Sort
 	
-	
+    private T getMax(T[] myArray){
+    	T max = myArray[0];
+        for (int i = 1; i < myArray.length; i++) {
+        	if(compare.Compare(max, myArray[i]) == 1){
+				max = myArray[i];
+			}
+        }
+        
+        return max;
+    }
+ 
+
+    private void countSort(T[] myArray, int exp){
+    	Integer[] output = new Integer[myArray.length];
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count, 0);
+ 
+        for (i = 0; i < myArray.length; i++)
+            count[(Integer.valueOf((String) myArray[i]) / exp) % 10]++;
+ 
+        for (i = 1; i < 10; i++)
+            count[i] += count[i - 1];
+ 
+        for (i = myArray.length - 1; i >= 0; i--) {
+            output[count[((Integer.valueOf((String) myArray[i]) / exp) % 10)] - 1] = (int) myArray[i];
+            count[((Integer.valueOf((String) myArray[i]) / exp) % 10)]--;
+        }
+        
+        for (i = 0; i < myArray.length; i++)
+        	myArray[i] = (T) output[i];
+    }
+ 
+
+    public void radixsort(T[] myArray){
+
+        T m = (T) getMax(myArray);
+ 
+        for (int exp = 1; Integer.valueOf((String) m) / exp > 0; exp *= 10) {        	
+        	countSort(myArray, exp);
+        }
+    }
 	
 	
 }
