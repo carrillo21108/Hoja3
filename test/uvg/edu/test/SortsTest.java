@@ -27,7 +27,7 @@ class SortsTest {
 		myArray[2] = 1;
 		myArray[3] = 3;
 		
-		sorts.gnomeSort(myArray); 
+		sorts.gnomeSort(myArray);
 		
 		assertEquals(myArray[0], 1);
 		assertEquals(myArray[1], 2);
@@ -46,7 +46,11 @@ class SortsTest {
 		myArray[2] = 1;
 		myArray[3] = 3; 
 		
-		sorts.gnomeSort(myArray);
+		sorts.mergeSort(myArray, myArray.length);
+		
+		for(int i:myArray) {
+			System.out.println(i);
+		}
 		
 		assertEquals(myArray[0], 1);
 		assertEquals(myArray[1], 2);
@@ -75,7 +79,7 @@ class SortsTest {
 		myArray[12] = 1; 
 		
 		
-		sorts.radixsort(myArray);		
+		sorts.radixSort(myArray);		
 		
 		assertEquals(myArray[0], 1);
 		assertEquals(myArray[1], 2);

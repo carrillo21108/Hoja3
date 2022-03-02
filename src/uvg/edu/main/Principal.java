@@ -81,18 +81,92 @@ public class Principal {
             		
             		System.out.println("Ordenamientos finalizados.");
             		break;
+            		
             	case 2:
             		System.out.println("--MERGE SORT--");
+            		for(int i=10;i<=3000;i+=299) {
+            			Integer[] parciales = new Integer[i];
+            			for(int j=0; j<i; j++) {
+            				parciales[j]=enteros[j];
+            			}
+            			System.out.println("Ordenamiento con: "+i+" numeros.");
+            			sorts.mergeSort(parciales, parciales.length);
+            			
+            			for(int k:parciales) {
+            				System.out.println(k);
+            			}
+            			
+            			System.out.println("Presione [ENTER] para continuar.");
+            			scanner.nextLine();
+            		}
+            		
+            		System.out.println("Ordenamientos finalizados.");
             		break;
+            		
             	case 3:
             		System.out.println("--RADIX SORT--");
+            		for(int i=10;i<=3000;i+=299) {
+            			Integer[] parciales = new Integer[i];
+            			for(int j=0; j<i; j++) {
+            				parciales[j]=enteros[j];
+            			}
+            			System.out.println("Ordenamiento con: "+i+" numeros.");
+            			sorts.radixSort(parciales);
+            			
+            			for(int k:parciales) {
+            				System.out.println(k);
+            			}
+            			
+            			System.out.println("Presione [ENTER] para continuar.");
+            			scanner.nextLine();
+            		}
+            		
+            		System.out.println("Ordenamientos finalizados.");
             		break;
+            		
             	case 4:
             		System.out.println("--QUICK SORT--");
+            		for(int i=10;i<=3000;i+=299) {
+            			Integer[] parciales = new Integer[i];
+            			for(int j=0; j<i; j++) {
+            				parciales[j]=enteros[j];
+            			}
+            			System.out.println("Ordenamiento con: "+i+" numeros.");
+            			sorts.quickSort(parciales,0,parciales.length);
+            			
+            			for(int k:parciales) {
+            				System.out.println(k);
+            			}
+            			
+            			System.out.println("Presione [ENTER] para continuar.");
+            			scanner.nextLine();
+            		}
+            		
+            		System.out.println("Ordenamientos finalizados.");
+            		
             		break;
+            		
             	case 5:
             		System.out.println("--BUBBLE SORT--");
+            		for(int i=10;i<=3000;i+=299) {
+            			Integer[] parciales = new Integer[i];
+            			for(int j=0; j<i; j++) {
+            				parciales[j]=enteros[j];
+            			}
+            			System.out.println("Ordenamiento con: "+i+" numeros.");
+            			sorts.bubbleSort(parciales);
+            			
+            			for(int k:parciales) {
+            				System.out.println(k);
+            			}
+            			
+            			System.out.println("Presione [ENTER] para continuar.");
+            			scanner.nextLine();
+            		}
+            		
+            		System.out.println("Ordenamientos finalizados.");
             		break;
+            		
             	case 6:
             		System.out.println("Almacenando ordenamiento realizado.");
             		sorts.quickSort(enteros, 0, enteros.length -1);
@@ -101,6 +175,7 @@ public class Principal {
             		System.out.println("Saliendo...");
             		menu = false;
             		break;
+            		
             	default:
             		System.out.println("Opcion incorrecta. Intentelo de nuevo.");
             		break;

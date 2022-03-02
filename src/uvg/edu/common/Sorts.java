@@ -42,6 +42,24 @@ public class Sorts<T> {
 	
 	// Merge Sort
 	
+	private void merge(T[] myArray, T[] l, T[] r, int left, int right) {
+		 
+	    int i = 0, j = 0, k = 0;
+	    while (i < left && j < right) {
+	    	if(compare.Compare(l[i], r[j]) >= -1) {
+	    		myArray[k++] = l[i++];
+	    	}else {
+	    		myArray[k++] = r[j++];
+	        }
+	    }
+	    while (i < left) {
+	    	myArray[k++] = l[i++];
+	    }
+	    while (j < right) {
+	    	myArray[k++] = r[j++];
+	    }
+	} 
+	
 	public void mergeSort(T[] myArray, int length) {
 	    if (length < 2) {
 	        return;
@@ -62,24 +80,6 @@ public class Sorts<T> {
 
 	    merge(myArray, (T[])l, (T[])r, mid, length - mid);
 	}
-	
-	private void merge(T[] myArray, T[] l, T[] r, int left, int right) {
-	 
-	    int i = 0, j = 0, k = 0;
-	    while (i < left && j < right) {
-	    	if(compare.Compare(l[i], r[j]) >= -1) {
-	    		myArray[k++] = l[i++];
-	    	}else {
-	    		myArray[k++] = r[j++];
-	        }
-	    }
-	    while (i < left) {
-	    	myArray[k++] = l[i++];
-	    }
-	    while (j < right) {
-	    	myArray[k++] = r[j++];
-	    }
-	} 
 	
 	
 	//Radix Sort
@@ -122,7 +122,7 @@ public class Sorts<T> {
     }
  
 
-    public void radixsort(T[] myArray){
+    public void radixSort(T[] myArray){
 
         Integer m = (Integer) getMax(myArray);
  
