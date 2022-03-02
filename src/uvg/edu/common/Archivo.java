@@ -101,4 +101,25 @@ public class Archivo {
 			return readFile();
 		}
 	}
+	
+	public void updateFile(Integer[] enteros) {
+		try {
+			File file = new File("datosHDT3.txt");
+			
+			FileWriter fw = new FileWriter(file);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			String contenido="";
+			for(int entero:enteros) {
+				contenido += String.valueOf(entero)+"\n";
+			}
+			
+			bw.write(contenido);
+			bw.close();
+			
+		}catch(Exception e) {
+			System.out.println("Error al actualizar el archivo.");
+			e.printStackTrace();
+		}
+	}
 }

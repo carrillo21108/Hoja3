@@ -133,7 +133,7 @@ public class Sorts<T> {
     
     
     
-    public void QuickSort(T[] myArray, int inf, int sup) {
+    public void quickSort(T[] myArray, int inf, int sup) {
         int i = inf -1;
         int j = sup;
         boolean flag = true;
@@ -162,27 +162,24 @@ public class Sorts<T> {
  	   temp = myArray[i];
  	   myArray[i] = myArray[sup];
  	   myArray[sup] = temp;
- 	   QuickSort(myArray, inf, i - 1);
- 	   QuickSort(myArray, i + 1, sup);
+ 	   quickSort(myArray, inf, i - 1);
+ 	   quickSort(myArray, i + 1, sup);
     }
 
     
 
-//BubbleSort
-public void BubbleSort( T[] myArray) {
-	for (int i = 0; i < myArray.length - 1; i++) {
-		for(int j = i + 1; j < myArray.length; j++) {
-			if(compare.Compare(myArray[i], myArray[j]) > 0) {
-				T temp = myArray[i];
-				myArray[i] = myArray[j];
-				myArray[j] = temp;
+	//BubbleSort
+	public void bubbleSort( T[] myArray) {
+		for (int i = 0; i < myArray.length - 1; i++) {
+			for(int j = i + 1; j < myArray.length; j++) {
+				if(compare.Compare(myArray[i], myArray[j]) > 0) {
+					T temp = myArray[i];
+					myArray[i] = myArray[j];
+					myArray[j] = temp;
+				}
 			}
 		}
+		
 	}
-	
-}
-
-
-	
 	
 }

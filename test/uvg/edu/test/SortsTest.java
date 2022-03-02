@@ -101,7 +101,7 @@ class SortsTest {
 		myArray[2] = 6;
 		myArray[3] = 1;
 		
-		sorts.QuickSort(myArray, 0, myArray.length -1); 
+		sorts.quickSort(myArray, 0, myArray.length -1); 
 		
 		assertEquals(myArray[0], 1);
 		assertEquals(myArray[1], 2);
@@ -118,7 +118,7 @@ class SortsTest {
 		myArray[2] = 2;
 		myArray[3] = 3;
 		
-		sorts.BubbleSort(myArray);
+		sorts.bubbleSort(myArray);
 		assertEquals(myArray[0], 1);
 		assertEquals(myArray[1], 2);
 		assertEquals(myArray[2], 3);
