@@ -17,7 +17,7 @@ public class Archivo {
 	public void createFile() {
 		Integer[] enteros = new Integer[3000];
 		for(int i=0;i<3000;i++) {
-			enteros[i] = random.nextInt();
+			enteros[i] = Math.abs(random.nextInt());
 		}
 		
 		try {

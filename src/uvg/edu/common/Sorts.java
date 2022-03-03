@@ -42,43 +42,57 @@ public class Sorts<T> {
 	
 	// Merge Sort
 	
-	private void merge(T[] myArray, T[] l, T[] r, int left, int right) {
-		 
-	    int i = 0, j = 0, k = 0;
-	    while (i < left && j < right) {
-	    	if(compare.Compare(l[i], r[j]) >= -1) {
-	    		myArray[k++] = l[i++];
-	    	}else {
-	    		myArray[k++] = r[j++];
+	private void merge(T[] myArray, int l, int m, int r){
+
+	    int n1 = m - l + 1;
+	    int n2 = r - m;
+
+	    Integer[] L = new Integer[n1];
+	    Integer[] R = new Integer[n2];
+
+	    for (int i = 0; i < n1; ++i)
+	        L[i] = (Integer) myArray[l + i];
+	    for (int j = 0; j < n2; ++j)
+	        R[j] = (Integer) myArray[m + 1 + j];
+
+
+	    int i = 0, j = 0;
+
+	    int k = l;
+	    while (i < n1 && j < n2) {
+	        if (L[i] <= R[j]) {
+	        	myArray[k] = (T) L[i];
+	            i++;
 	        }
+	        else {
+	        	myArray[k] = (T) R[j];
+	            j++;
+	        }
+	        k++;
 	    }
-	    while (i < left) {
-	    	myArray[k++] = l[i++];
-	    }
-	    while (j < right) {
-	    	myArray[k++] = r[j++];
-	    }
-	} 
-	
-	public void mergeSort(T[] myArray, int length) {
-	    if (length < 2) {
-	        return;
-	    }
-	    int mid = length / 2;
-	    Integer[] l = new Integer[mid];
-	    Integer[] r = new Integer[length - mid];
 
-	    for (int i = 0; i < mid; i++) {
-	        l[i] = (Integer) myArray[i];
+	    while (i < n1) {
+	    	myArray[k] = (T) L[i];
+	        i++;
+	        k++;
 	    }
-	    for (int i = mid; i < length; i++) {
-	        r[i - mid] = (Integer) myArray[i];
-	    }
-	    
-	    mergeSort((T[]) l, mid);
-	    mergeSort((T[]) r, length - mid);
 
-	    merge(myArray, (T[])l, (T[])r, mid, length - mid);
+	    while (j < n2) {
+	    	myArray[k] = (T) R[j];
+	        j++;
+	        k++;
+	    }
+	}
+
+	public void mergeSort( T[] myArray, int l, int r){
+	    if (l < r) {
+	        int m =l+ (r-l)/2;
+
+	        mergeSort(myArray, l, m);
+	        mergeSort(myArray, m + 1, r);
+
+	        merge(myArray, l, m, r);
+	    }
 	}
 	
 	
@@ -132,6 +146,7 @@ public class Sorts<T> {
     }
     
     
+    //Quick Sort
     
     public void quickSort(T[] myArray, int inf, int sup) {
         int i = inf -1;
@@ -168,7 +183,7 @@ public class Sorts<T> {
 
     
 
-	//BubbleSort
+	//Bubble Sort
 	public void bubbleSort( T[] myArray) {
 		for (int i = 0; i < myArray.length - 1; i++) {
 			for(int j = i + 1; j < myArray.length; j++) {

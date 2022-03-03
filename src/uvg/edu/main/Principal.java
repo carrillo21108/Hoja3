@@ -90,7 +90,7 @@ public class Principal {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
-            			sorts.mergeSort(parciales, parciales.length);
+            			sorts.mergeSort(parciales, 0, parciales.length-1);
             			
             			for(int k:parciales) {
             				System.out.println(k);
@@ -132,7 +132,7 @@ public class Principal {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
-            			sorts.quickSort(parciales,0,parciales.length);
+            			sorts.quickSort(parciales,0,parciales.length-1);
             			
             			for(int k:parciales) {
             				System.out.println(k);

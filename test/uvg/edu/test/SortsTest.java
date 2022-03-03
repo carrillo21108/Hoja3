@@ -46,11 +46,7 @@ class SortsTest {
 		myArray[2] = 1;
 		myArray[3] = 3; 
 		
-		sorts.mergeSort(myArray, myArray.length);
-		
-		for(int i:myArray) {
-			System.out.println(i);
-		}
+		sorts.mergeSort(myArray,0,myArray.length-1);
 		
 		assertEquals(myArray[0], 1);
 		assertEquals(myArray[1], 2);
