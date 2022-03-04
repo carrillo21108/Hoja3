@@ -1,8 +1,14 @@
 /**
+ * Class Sorts
+ * @version 1.0 02/03/2022
+ *
  * 
  */
+
 package uvg.edu.common;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -11,15 +17,24 @@ import java.util.Comparator;
  *
  */
 public class Sorts<T> {
+	/**
+    *
+    */
+	
 	public IComparator compare;
 	
 	public Sorts(IComparator compare) {
 		this.compare = compare;
 	}
-	
-	
-	// Gnome Sort
-	
+		
+	/**
+     * Metodo gnomeSort: Método de ordenamiento Gnome Sort.
+     * 
+     * @see IComparator#Compare(Object, Object)
+     * @param myArray: (T[])
+     * @return
+     * 
+     */
 	public void gnomeSort( T[] myArray){
         int i = 0;
         while (i < myArray.length) {
@@ -40,8 +55,15 @@ public class Sorts<T> {
     }
 	
 	
-	// Merge Sort
-	
+	/**
+     * Metodo merge: Método complemento de Merge Sort.
+     *
+     * @param myArray: (T[])
+     * @param l: (int)
+     * @param r: (int)
+     * @param m: (int)
+     * 
+     */
 	private void merge(T[] myArray, int l, int m, int r){
 
 	    int n1 = m - l + 1;
@@ -84,6 +106,16 @@ public class Sorts<T> {
 	    }
 	}
 
+	/**
+     * Metodo mergeSort: Método de ordenamiento Merge Sort.
+     * 
+     * @see Sorts#merge(Object[], int, int, int)
+     * @see Sorts#mergeSort(Object[], int, int)
+     * @param myArray: (T[])
+     * @param l: (int)
+     * @param r: (int)
+     * 
+     */
 	public void mergeSort( T[] myArray, int l, int r){
 	    if (l < r) {
 	        int m =l+ (r-l)/2;
@@ -96,8 +128,14 @@ public class Sorts<T> {
 	}
 	
 	
-	//Radix Sort
-	
+	/**
+     * Metodo getMax: Método complemento de Radix Sort.
+     * 
+     * @see IComparator#Compare(Object, Object)
+     * @param myArray: (T[])
+     * @return max(T)
+     * 
+     */
     private T getMax(T[] myArray){
     	T max = myArray[0];
         for (int i = 1; i < myArray.length; i++) {
@@ -109,7 +147,13 @@ public class Sorts<T> {
     }
  
 
-    
+    /**
+     * countSort countSort: Método complemento de Radix Sort.
+     * 
+     * @param myArray: (T[])
+     * @param exp: (int)
+     * 
+     */
     private void countSort(T[] myArray, int exp){
     	Integer[] output = new Integer[myArray.length];
         int i;
@@ -136,6 +180,14 @@ public class Sorts<T> {
     }
  
 
+    /**
+     * radixSort mergeSort: Método de ordenamiento Radix Sort.
+     * 
+     * @param myArray: (T[])
+     * @see Sorts#countSort(Object[], int)
+     * @see Sorts#getMax(Object[])
+     * 
+     */
     public void radixSort(T[] myArray){
 
         Integer m = (Integer) getMax(myArray);
@@ -146,8 +198,17 @@ public class Sorts<T> {
     }
     
     
-    //Quick Sort
     
+    /**
+     * radixSort quickSort: Método de ordenamiento Quick Sort.
+     * 
+     * @param myArray: (T[])
+     * @param inf: (int)
+     * @param sup: (int)
+     * @see IComparator#Compare(Object, Object)
+     * @see Sorts#quickSort(Object[], int, int)
+     * 
+     */
     public void quickSort(T[] myArray, int inf, int sup) {
         int i = inf -1;
         int j = sup;
@@ -183,7 +244,13 @@ public class Sorts<T> {
 
     
 
-	//Bubble Sort
+    /**
+     * radixSort bubbleSort: Método de ordenamiento Bubble Sort.
+     * 
+     * @param myArray: (T[])
+     * @see IComparator#Compare(Object, Object)
+     * 
+     */
 	public void bubbleSort( T[] myArray) {
 		for (int i = 0; i < myArray.length - 1; i++) {
 			for(int j = i + 1; j < myArray.length; j++) {

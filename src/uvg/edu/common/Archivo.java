@@ -1,6 +1,11 @@
 /**
+ * Class Archivo
+ * @version 1.0 02/03/2022
+ *
  * 
  */
+
+
 package uvg.edu.common;
 
 import java.io.*;
@@ -12,8 +17,24 @@ import java.util.Random;
  *
  */
 public class Archivo {
+	/**
+    *
+    */
+	
 	Random random = new Random();
 	
+	/**
+     * Metodo createFile: sirve para crear un archivo con números enteros aleatorios.
+     * 
+     * @see System.out#println()
+     * @see java.io.File()
+     * @see File#createNewFile()
+     * @see java.io.BufferedWriter()
+     * @see BufferedWriter#close()
+     * @see BufferedWriter#write()
+     * @see Exception#printStackTrace()
+     * 
+     */
 	public void createFile() {
 		Integer[] enteros = new Integer[3000];
 		for(int i=0;i<3000;i++) {
@@ -41,6 +62,21 @@ public class Archivo {
 		}
 	}
 	
+	
+	/**
+     * Metodo readFile: sirve para leer un archivo con números enteros aleatorios.
+     * 
+     * @see System.out#println()
+     * @see java.io.File()
+     * @see java.io.BufferedReader()
+     * @see BufferedReader#readLine()
+     * @see BufferedReader#close()
+     * @see java.io.FileReader()
+     * @see Integer#parseInt(String)
+     * @see Exception#printStackTrace()
+     * @return enteros: (Integer[])
+     * 
+     */
 	public Integer[] readFile() {
 		Integer[] enteros = new Integer[3000];
 		
@@ -91,6 +127,19 @@ public class Archivo {
         return null;
 	}
 	
+	
+	/**
+     * Metodo checkFile: sirve para verificar si el archivo existe y si tiene data.
+     * 
+     * @see System.out#println()
+     * @see java.io.File()
+     * @see File#exists()
+     * @see File#isFile()
+     * @see Archivo#readFile()
+     * @see Archivo#createFile() 
+     * @return readFile()
+     * 
+     */
 	public Integer[] checkFile() {
 		File file = new File("datosHDT3.txt");
 		
@@ -102,6 +151,19 @@ public class Archivo {
 		}
 	}
 	
+	/**
+     * Metodo updateFile: sirve para actualizar los datos del archivo ya existente.
+     * 
+     * @see System.out#println()
+     * @see java.io.File()
+     * @see File#createNewFile()
+     * @see java.io.BufferedWriter()
+     * @see BufferedWriter#close()
+     * @see BufferedWriter#write()
+     * @see String#valueOf()
+     * @see Exception#printStackTrace()
+     * 
+     */
 	public void updateFile(Integer[] enteros) {
 		try {
 			File file = new File("datosHDT3.txt");

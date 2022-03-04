@@ -1,6 +1,10 @@
 /**
+ * Interface IComparator
+ * @version 1.0 02/03/2022
+ *
  * 
  */
+
 package uvg.edu.common;
 
 /**
