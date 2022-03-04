@@ -11,11 +11,13 @@ import uvg.edu.common.IntegerComparator;
 import uvg.edu.common.Sorts;
 
 /**
- * @author Brian Carrillo
+ * @author Carlos Lopez
+ * @author Jennifer Toxcon
  *
  */
 class SortsTest {
-
+	
+	//Pruebas de GnomeSort
 	@Test
 	void GnomeSortTest() {
 		
@@ -36,6 +38,7 @@ class SortsTest {
 		
 	}
 	
+	//Pruebas de MergeSort
 	@Test
 	void MergeSortTest() {
 		
@@ -55,6 +58,7 @@ class SortsTest {
 		
 	}
 	
+	//Pruebas de RadixSort
 	@Test
 	void RadixSortTest() {
 		
@@ -92,6 +96,7 @@ class SortsTest {
 		assertEquals(myArray[12], 13);
 	}
 	
+	//Pruebas de QuickSort
 	@Test
 	void QuickSortTest() {
 		Sorts sorts = new Sorts(new IntegerComparator());
@@ -109,6 +114,7 @@ class SortsTest {
 		assertEquals(myArray[3], 6);
 	}
 	
+	//Pruebas de BubbleSort
 	@Test
 	void BubbleSortTest() {
 		Sorts sorts = new Sorts(new IntegerComparator());

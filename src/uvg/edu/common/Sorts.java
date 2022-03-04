@@ -13,7 +13,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author Brian Carrillo
+ * @author Carlos Lopez
+ * @author Jennifer Toxcon
  *
  */
 public class Sorts<T> {

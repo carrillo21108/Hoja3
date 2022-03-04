@@ -20,6 +20,8 @@ public class Principal {
 	 */
 	public static void main(String[] args) {
 		Archivo archivo = new Archivo();
+		
+		//Enteros del archivo
 		Integer[] enteros = archivo.checkFile();
 		Scanner scanner = new Scanner(System.in);
 		Sorts sorts = new Sorts(new IntegerComparator());
@@ -33,6 +35,7 @@ public class Principal {
 		boolean error = false;
 		int opcion;
 		
+		//Ciclo del menu
         do {
         	do{
             	opcion = 0;
@@ -62,15 +65,21 @@ public class Principal {
             
             switch(opcion) {
             	case 1:
+            		//Pruebas con Gnome Sort
             		System.out.println("--GNOME SORT--");
+            		
+            		//Arrays Parciales
             		for(int i=10;i<=3000;i+=299) {
             			Integer[] parciales = new Integer[i];
+            			
+            			//Creacion de array parcial
             			for(int j=0; j<i; j++) {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
             			sorts.gnomeSort(parciales);
             			
+            			//Impresion de resultado
             			for(int k:parciales) {
             				System.out.println(k);
             			}
@@ -83,15 +92,21 @@ public class Principal {
             		break;
             		
             	case 2:
+            		//Pruebas con merge sort
             		System.out.println("--MERGE SORT--");
+            		
+            		//Arrays Parciales
             		for(int i=10;i<=3000;i+=299) {
             			Integer[] parciales = new Integer[i];
+            			
+            			//Creacion de array parcial
             			for(int j=0; j<i; j++) {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
             			sorts.mergeSort(parciales, 0, parciales.length-1);
             			
+            			//Impresion de resultados
             			for(int k:parciales) {
             				System.out.println(k);
             			}
@@ -104,15 +119,21 @@ public class Principal {
             		break;
             		
             	case 3:
+            		//Pruebas con Radix sort
             		System.out.println("--RADIX SORT--");
+            		
+            		//Arrays parciales
             		for(int i=10;i<=3000;i+=299) {
             			Integer[] parciales = new Integer[i];
+            			
+            			//Creacion de array parcial
             			for(int j=0; j<i; j++) {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
             			sorts.radixSort(parciales);
             			
+            			//Impresion de resultados
             			for(int k:parciales) {
             				System.out.println(k);
             			}
@@ -125,15 +146,21 @@ public class Principal {
             		break;
             		
             	case 4:
+            		//Pruebas con quick sort
             		System.out.println("--QUICK SORT--");
+            		
+            		//Arrays parciales
             		for(int i=10;i<=3000;i+=299) {
             			Integer[] parciales = new Integer[i];
+            			
+            			//Creacion de array parcial
             			for(int j=0; j<i; j++) {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
             			sorts.quickSort(parciales,0,parciales.length-1);
             			
+            			//Impresion de resultados
             			for(int k:parciales) {
             				System.out.println(k);
             			}
@@ -147,15 +174,21 @@ public class Principal {
             		break;
             		
             	case 5:
+            		//Pruebas con bubble sort
             		System.out.println("--BUBBLE SORT--");
+            		
+            		//Arrays parciales
             		for(int i=10;i<=3000;i+=299) {
             			Integer[] parciales = new Integer[i];
+            			
+            			//Creacion de arrays parciales
             			for(int j=0; j<i; j++) {
             				parciales[j]=enteros[j];
             			}
             			System.out.println("Ordenamiento con: "+i+" numeros.");
             			sorts.bubbleSort(parciales);
             			
+            			//Impresion de resultados
             			for(int k:parciales) {
             				System.out.println(k);
             			}
@@ -168,6 +201,7 @@ public class Principal {
             		break;
             		
             	case 6:
+            		//Almacenamiento del ordenamiento
             		System.out.println("Almacenando ordenamiento realizado.");
             		sorts.quickSort(enteros, 0, enteros.length -1);
             		archivo.updateFile(enteros);

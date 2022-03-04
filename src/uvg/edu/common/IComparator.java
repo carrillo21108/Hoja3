@@ -8,7 +8,7 @@
 package uvg.edu.common;
 
 /**
- * @author Brian Carrillo
+ * @author Carlos Lopez
  *
  */
 public interface IComparator<T> {

@@ -36,23 +36,27 @@ public class Archivo {
      * 
      */
 	public void createFile() {
+		//Generacion de enteros positivos al azar
 		Integer[] enteros = new Integer[3000];
 		for(int i=0;i<3000;i++) {
 			enteros[i] = Math.abs(random.nextInt());
 		}
 		
 		try {
+			//Creacion de archivo
 			File file = new File("datosHDT3.txt");
 			file.createNewFile();
 			
 			FileWriter fw = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(fw);
 			
+			//Construccion de contenido del archivo
 			String contenido="";
 			for(int entero:enteros) {
 				contenido += String.valueOf(entero)+"\n";
 			}
 			
+			//Escritura en el archivo
 			bw.write(contenido);
 			bw.close();
 			
@@ -143,8 +147,11 @@ public class Archivo {
 	public Integer[] checkFile() {
 		File file = new File("datosHDT3.txt");
 		
+		//Lectura de archivo en caso exista
 		if(file.exists() && file.isFile()) {
 			return readFile();
+		
+		//Creacion y lectura de archivo en caso no exista
 		}else {
 			createFile();
 			return readFile();
@@ -166,16 +173,19 @@ public class Archivo {
      */
 	public void updateFile(Integer[] enteros) {
 		try {
+			//Creacion de objeto de archivo
 			File file = new File("datosHDT3.txt");
 			
 			FileWriter fw = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(fw);
 			
+			//Creacion del contenido del archivo
 			String contenido="";
 			for(int entero:enteros) {
 				contenido += String.valueOf(entero)+"\n";
 			}
 			
+			//Modificacion de todo el contenido
 			bw.write(contenido);
 			bw.close();
 			

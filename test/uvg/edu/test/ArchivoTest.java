@@ -15,6 +15,7 @@ import uvg.edu.common.Archivo;
  */
 class ArchivoTest {
 
+	//Prueba sobre lectura de archivos
 	@Test
 	void checkFileTest() {
 		Archivo archivo = new Archivo();
